@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
 const TextScreen = () => {
-  return <View>
+  const [name, setName] = useState('');
+
+  return (
+    <View>
+    <Text>Please enter password</Text>
     <TextInput
       style={styles.input}
       autoCapitalize="none"
       autoCorrect={false}
-    />
+      value={name}
+      onChangeText={(newText) => setName(newText)}
+      />
+    { name.length < 6 ? <Text style={styles.error}>Password is too short</Text> : null }
   </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -16,6 +24,9 @@ const styles = StyleSheet.create({
     margin: 15,
     borderColor: 'black',
     borderWidth: 1
+  },
+  error: {
+    color: 'red'
   }
 })
 
