@@ -23,10 +23,11 @@ const styles = StyleSheet.create({
   input: {
     margin: 15,
     borderColor: 'black',
-    borderWidth: 1
+    borderWidth: 2
   },
   error: {
-    color: 'red'
+    color: 'red',
+    fontSize: 15
   }
 })
 
